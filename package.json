@@ -41,8 +41,8 @@
     "minecraft-wrap": "^1.2.3",
     "mocha": "^11.0.1",
     "power-assert": "^1.0.0",
-    "standard": "^17.0.0",
-    "prismarine-registry": "^1.8.0"
+    "prismarine-registry": "^1.8.0",
+    "standard": "^17.0.0"
   },
   "dependencies": {
     "@types/node-rsa": "^1.1.4",
@@ -52,7 +52,7 @@
     "debug": "^4.3.2",
     "endian-toggle": "^0.0.0",
     "lodash.merge": "^4.3.0",
-    "minecraft-data": "^3.109.0",
+    "minecraft-data": "github:PCX-Network/minecraft-data#9ccbb0613d593e37886fd325bc6006ac3d0fdc3d",
     "minecraft-folder-path": "^1.2.0",
     "node-fetch": "^2.6.1",
     "node-rsa": "^0.4.2",
@@ -64,5 +64,8 @@
     "readable-stream": "^4.1.0",
     "uuid-1345": "^1.0.1",
     "yggdrasil": "^1.4.0"
+  },
+  "overrides": {
+    "minecraft-data": "$minecraft-data"
   }
 }

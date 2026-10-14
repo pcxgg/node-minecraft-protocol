@@ -207,7 +207,8 @@ const values = {
         ? (typeArgs[2].type[1].fields['minecraft:crafting_shapeless'] === undefined ? 'crafting_shapeless' : 'minecraft:crafting_shapeless')
         : getValue(typeArgs[index].type, results)
       if (typeArgs[index].anon) {
-        Object.keys(v).forEach(key => {
+        // an anonymous switch whose compareTo matched no field yields void (undefined)
+        Object.keys(v ?? {}).forEach(key => {
           results[key] = v[key]
         })
       } else {
@@ -303,7 +304,10 @@ const values = {
     })
     return results
   },
-  mapper: '',
+  mapper: function (typeArgs) {
+    // pick a real mapped value so switches keyed on this field (e.g. 26.3 sync_entity_position.positionType) take a branch
+    return Object.values(typeArgs.mappings)[0] ?? ''
+  },
   tags: [{ tagName: 'hi', entries: [1, 2, 3, 4, 5] }],
   ingredient: [slotValue],
   particleData: null,
@@ -409,6 +413,14 @@ const values = {
   ItemSoundHolder: { soundId: 1 },
   ChatTypesHolder: { chatType: 1 },
   ExactComponentMatcher: [],
+  ItemStackTemplate: {
+    itemId: 1,
+    itemCount: 1,
+    addedComponentCount: 0,
+    removedComponentCount: 0,
+    components: [],
+    removeComponents: []
+  },
   HashedStack: {
     itemId: 1,
     count: 1,
@@ -420,6 +432,10 @@ const values = {
     filtering: false
   },
   lpVec3: { x: 0, y: 0, z: 0 },
+  entityDelta: {
+    onGround: true,
+    steps: [{ dX: 1, dY: -2, dZ: 3, ticks: 1 }, { dX: -4, dY: 5, dZ: -6, ticks: 2 }]
+  },
   ExplosionParticleEntry: {
     data: { // ExplosionParticleInfo
       particle: {
