@@ -52,7 +52,7 @@
     "debug": "^4.3.2",
     "endian-toggle": "^0.0.0",
     "lodash.merge": "^4.3.0",
-    "minecraft-data": "github:PCX-Network/minecraft-data#9ccbb0613d593e37886fd325bc6006ac3d0fdc3d",
+    "minecraft-data": "github:PCX-Network/minecraft-data#bbffdeb97c98d1725787a50fbdae8bca3eabd507",
     "minecraft-folder-path": "^1.2.0",
     "node-fetch": "^2.6.1",
     "node-rsa": "^0.4.2",
